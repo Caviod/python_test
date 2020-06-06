@@ -4,7 +4,17 @@ b = len(input())
 print(a+b)
 
 """
+"""
+name = input("请输入姓名:")
+age = input("请输入年龄:")
+sex = input("请输入性别:")
+userinfo = {}
+userinfo.update(name = name, sex = sex, age = age)
+print(userinfo)
 
-#元组  
-a = (1,2,3,4,"哈哈",True)
-print(a)
+"""
+
+import pymysql as sql
+
+
+
