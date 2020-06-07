@@ -1,80 +1,26 @@
-"""
-high_score = {}  
-low_score = {}
-studentlist = ["一","二","三","四","五","六","七","八","九","十"]
-a = 0
-while a < len(studentlist):
-    score = int(input("请输入"+studentlist[a]+"的成绩:"))
-    if score >= 60:
-        high_score[studentlist[a]] = score
-    else:
-        low_scmdcore[studentlist[a]] = score
-    a = a + 1
-print(high_score)
-print(low_score)
-"""
+# 文件操作
+# 第一次写入 w 会自动覆盖
+file1 = open(r'C:\Users\A\Desktop\文件测试.txt','w')
+file1.write('测试')
+file1.close()
 
+# 读取文档内容
+file2 = open(r'C:\Users\A\Desktop\文件测试.txt')
+print(file2.read())
+file2.close()
 
+# 添加新的东西
+file3 = open(r'C:\Users\A\Desktop\文件测试.txt','a')
+file3.write('测试')
+file3.close()
 
-"""
-high_score = {}  
-low_score = {}
-studentlist = ["一","二","三","四","五","六","七","八","九","十"]
-for i in studentlist:
-    score = int(input("请输入"+i+"的成绩:"))
-    if score >= 60:
-        high_score[i] = score
-    else:
-        low_score[i] = score
-print(high_score)
-print(low_score)
-"""  
+# 读取单行
+file4 = open(r'C:\Users\A\Desktop\文件测试.txt')
+print(file4.readline(1))
 
-
-"""
-for i in range(1,10):
-    for j in range(1,i+1):
-        print(i,"x",j,"=",i*j,end = "  ")
-    print()
-"""
-"""
-while True:
-    light =  {"红灯":30,"绿灯":35,"黄灯":3}
-    for i in light:
-        for j in range(light[i]):
-            print(i,light[i] - j)
-"""
-"""
-username = input("请输入账号：")
-password = input("请输入密码：")
-if len(username) >= 5 and len(username) <= 8:
-    if username[0] in "abcdefghijklmnopqrstuvwxyz":
-        if len(password) >= 8 and len(password) <= 12:
-            print("注册成功",{username:password})
-        else:
-            print("密码不符合规范")
-    else:
-        print("不符合规范")
-else:
-    print("不符合规范")
-"""
-"""
-import pymysql
-db = pymysql.connect(host= "127.0.0.1",user="root",db="testdb")
-cur = db.cursor()
-cur.execute("select * from t_class;")
-res = cur.fetchall()
-print(res)
-"""
-
-class Test():
-    def __init__(self,a,b,c):
-        self.a = a
-        self.b = b
-        self.c = c
-
-    def add(self):
-        print(self.a+self.b+self.c)
-
-Use = Test(1,2,3)
-Use.add()
+# 读取多行
+file5 = open(r'C:\Users\A\Desktop\文件测试.txt')
+for line in file5.readlines():
+    print(line)
+print(file5.tell()) #tell读取文件目前指针位置
+file5.seek(0，0) #seek第一个参数代表偏移位置 第二个参数 0 从开头进行偏移 1 从当前位置进行偏移 2 从结尾进行偏移
